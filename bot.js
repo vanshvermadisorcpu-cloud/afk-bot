@@ -1,3 +1,13 @@
+const http = require('http')
+
+const PORT = process.env.PORT || 3000
+
+http.createServer((req, res) => {
+  res.write('Bot is running')
+  res.end()
+}).listen(PORT, () => {
+  console.log('Web server running on ' + PORT)
+})
 const mineflayer = require('mineflayer')
 
 function createBot() {

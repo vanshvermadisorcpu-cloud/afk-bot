@@ -33,3 +33,11 @@ function createBot() {
 }
 
 createBot()
+bot.on('spawn', () => {
+  console.log('Bot joined!')
+
+  setInterval(() => {
+    bot.swingArm('right')
+    console.log('Bot active')
+  }, 10000)
+})

@@ -1,20 +1,35 @@
 const mineflayer = require('mineflayer')
 
-const bot = mineflayer.createBot({
-  host: 'PB36-SMP1.aternos.me',
-  port: 24464,
-  username: 'SHAANKRAAAAAAA',
-  version: '1.21.4'
-})
+function createBot() {
+  const bot = mineflayer.createBot({
+    host: 'PB36-SMP1.aternos.me',
+    port: 24464,
+    username: 'SHAANKRAAAAAAA',
+    version: '1.21.4'
+  })
 
-bot.on('spawn', () => {
-  console.log('Bot joined!')
-})
+  bot.on('spawn', () => {
+    console.log('Bot joined!')
 
-bot.on('error', (err) => {
-  console.log('Error:', err)
-})
+    // thoda movement
+    setInterval(() => {
+      bot.setControlState('forward', true)
 
-bot.on('end', () => {
-  console.log('Disconnected!')
-})
+      setTimeout(() => {
+        bot.setControlState('forward', false)
+      }, 1000)
+
+    }, 30000)
+  })
+
+  bot.on('error', (err) => {
+    console.log('Error:', err.message)
+  })
+
+  bot.on('end', () => {
+    console.log('Disconnected! Reconnecting in 10 seconds...')
+    setTimeout(createBot, 10000)
+  })
+}
+
+createBot()

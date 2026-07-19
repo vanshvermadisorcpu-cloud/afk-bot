@@ -12,6 +12,8 @@ http.createServer((req, res) => {
 const mineflayer = require('mineflayer')
 
 function createBot() {
+  console.log("Starting Minecraft bot...")
+
   const bot = mineflayer.createBot({
     host: 'PB36-SMP1.aternos.me',
     port: 24464,

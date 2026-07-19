@@ -8,6 +8,7 @@ http.createServer((req, res) => {
 }).listen(PORT, () => {
   console.log('Web server running on ' + PORT)
 })
+
 const mineflayer = require('mineflayer')
 
 function createBot() {
@@ -21,7 +22,11 @@ function createBot() {
   bot.on('spawn', () => {
     console.log('Bot joined!')
 
-    // thoda movement
+    setInterval(() => {
+      bot.swingArm('right')
+      console.log('Bot active')
+    }, 10000)
+
     setInterval(() => {
       bot.setControlState('forward', true)
 
@@ -43,11 +48,3 @@ function createBot() {
 }
 
 createBot()
-bot.on('spawn', () => {
-  console.log('Bot joined!')
-
-  setInterval(() => {
-    bot.swingArm('right')
-    console.log('Bot active')
-  }, 10000)
-})

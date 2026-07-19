@@ -2,9 +2,9 @@
   "name": "afkbot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node bot.js"
   },
   "keywords": [],
   "author": "",
@@ -13,4 +13,3 @@
   "dependencies": {
     "mineflayer": "^4.37.1"
   }
-}

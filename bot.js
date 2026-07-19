@@ -22,22 +22,17 @@ function createBot() {
   })
 
   bot.on('spawn', () => {
-    console.log('Bot joined!')
+  console.log('Bot joined!')
 
-    setInterval(() => {
-      bot.swingArm('right')
-      console.log('Bot active')
-    }, 10000)
+  setInterval(() => {
+    bot.setControlState('jump', true)
+    setTimeout(() => {
+      bot.setControlState('jump', false)
+    }, 500)
 
-    setInterval(() => {
-      bot.setControlState('forward', true)
-
-      setTimeout(() => {
-        bot.setControlState('forward', false)
-      }, 1000)
-
-    }, 30000)
-  })
+    console.log('Bot moving')
+  }, 10000)
+})
 
   bot.on('error', (err) => {
     console.log('Error:', err.message)

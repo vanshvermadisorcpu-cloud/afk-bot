@@ -4,7 +4,7 @@ const bot = mineflayer.createBot({
   host: 'PB36-SMP1.aternos.me',
   port: 24464,
   username: 'SHAANKRAAAAAAA',
-  version: 1.26.8
+  version: 1.21.8
 })
 
 bot.on('spawn', () => {
